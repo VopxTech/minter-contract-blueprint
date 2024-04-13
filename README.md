@@ -7,7 +7,10 @@ This project is based on [minter-contract](https://github.com/ton-blockchain/min
 -   JettonMinter:
 
     -   [x] Contracts migrated
-    -   [x] Wrapper re-implemented
+    -   [ ] Wrapper re-implemented
+        -   [x] Deployer
+        -   [ ] Minter
+        -   [ ] Burner
     -   [x] Functional deploy script
     -   [ ] Test cases
 

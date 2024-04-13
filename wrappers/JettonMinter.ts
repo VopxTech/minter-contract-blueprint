@@ -117,4 +117,24 @@ export class JettonMinter implements Contract {
             body: beginCell().endCell(),
         });
     }
+
+    async getJettonData(provider: ContractProvider) {
+        const { stack } = await provider.get('get_jetton_data', []);
+        return {
+            supply: stack.readNumber(),
+            flag: stack.readNumber(),
+            owner: stack.readAddress(),
+            metadata: stack.readCell(),
+            wallet_code: stack.readCell(),
+        };
+    }
+
+    async getWalletAddress(provider: ContractProvider, address: Address) {
+        const { stack } = await provider.get('get_wallet_address', [
+            { type: 'slice', cell: beginCell().storeAddress(address).endCell() },
+        ]);
+        return {
+            address: stack.readAddress(),
+        };
+    }
 }

@@ -18,11 +18,23 @@ describe('JettonMinter', () => {
     beforeEach(async () => {
         blockchain = await Blockchain.create();
 
-        jettonMinter = blockchain.openContract(JettonMinter.createFromConfig({}, code));
-
         deployer = await blockchain.treasury('deployer');
 
-        const deployResult = await jettonMinter.sendDeploy(deployer.getSender(), toNano('0.05'));
+        jettonMinter = blockchain.openContract(
+            JettonMinter.createFromConfig(
+                {
+                    supply: toNano('1000000'),
+                    owner: deployer.address,
+                    name: 'My Jetton',
+                    symbol: 'JETT',
+                    image: 'https://bitcoin.org/img/icons/logotop.svg',
+                    description: 'My first jetton',
+                },
+                code,
+            ),
+        );
+
+        const deployResult = await jettonMinter.sendDeploy(deployer.getSender(), toNano('0.2'));
 
         expect(deployResult.transactions).toHaveTransaction({
             from: deployer.address,
@@ -32,8 +44,21 @@ describe('JettonMinter', () => {
         });
     });
 
-    it('should deploy', async () => {
-        // the check is done inside beforeEach
-        // blockchain and jettonMinter are ready to use
+    it('Should have the same supply as the config', async () => {
+        blockchain = await Blockchain.create();
+        deployer = await blockchain.treasury('deployer');
+
+        const metadata = {
+            supply: 1000000000000000,
+            owner: deployer.address,
+            name: 'My Jetton',
+            symbol: 'JETT',
+            image: 'https://bitcoin.org/img/icons/logotop.svg',
+            description: 'My first jetton',
+        };
+
+        const postDeployMetadata = await jettonMinter.getJettonData();
+
+        expect(postDeployMetadata.supply).toEqual(metadata.supply);
     });
 });
