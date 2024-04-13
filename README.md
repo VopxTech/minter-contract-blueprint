@@ -1,5 +1,7 @@
 # Jetton Minter
 
+[READ THIS BEFORE PROCEEDING](https://github.com/ton-blockchain/minter-contract?tab=readme-ov-file#protect-yourself-and-your-users)
+
 This project is based on [minter-contract](https://github.com/ton-blockchain/minter-contract) and is a re-implementation of said contracts using Blueprint and latest versions of TON SDK.
 
 -   JettonMinter:
