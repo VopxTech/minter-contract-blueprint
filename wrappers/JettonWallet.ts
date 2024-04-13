@@ -7,7 +7,10 @@ export function jettonWalletConfigToCell(config: JettonWalletConfig): Cell {
 }
 
 export class JettonWallet implements Contract {
-    constructor(readonly address: Address, readonly init?: { code: Cell; data: Cell }) {}
+    constructor(
+        readonly address: Address,
+        readonly init?: { code: Cell; data: Cell },
+    ) {}
 
     static createFromAddress(address: Address) {
         return new JettonWallet(address);

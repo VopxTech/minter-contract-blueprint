@@ -1,4 +1,19 @@
-# JettonMinter
+# Jetton Minter
+
+This project is based on [minter-contract](https://github.com/ton-blockchain/minter-contract) and is a re-implementation of said contracts using Blueprint and latest versions of TON SDK.
+
+-   JettonMinter:
+
+    -   [x] Contracts migrated
+    -   [x] Wrapper re-implemented
+    -   [x] Functional deploy script
+    -   [ ] Test cases
+
+-   JettonWallet:
+    -   [x] Contracts migrated
+    -   [x] Wrapper re-implemented
+    -   [ ] Scripts
+    -   [ ] Test cases
 
 ## Project structure
 
