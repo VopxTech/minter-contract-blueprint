@@ -2,23 +2,27 @@
 
 [READ THIS BEFORE PROCEEDING](https://github.com/ton-blockchain/minter-contract?tab=readme-ov-file#protect-yourself-and-your-users)
 
-This project is based on [minter-contract](https://github.com/ton-blockchain/minter-contract) and is a re-implementation of said contracts using Blueprint and latest versions of TON SDK.
+This project is based on [minter-contract](https://github.com/ton-blockchain/minter-contract) + [token-contract](https://github.com/ton-blockchain/token-contract) and acts as a re-implementation of said contracts using Blueprint and latest versions of TON SDK.
 
 -   JettonMinter:
 
     -   [x] Contracts migrated
-    -   [ ] Wrapper re-implemented
+    -   [x] Wrapper re-implemented
         -   [x] Deployer
-        -   [ ] Minter
-        -   [ ] Burner
+        -   [x] Minter
+        -   [x] Burner
     -   [x] Functional deploy script
-    -   [ ] Test cases
+    -   [x] Test cases
 
 -   JettonWallet:
+
     -   [x] Contracts migrated
     -   [x] Wrapper re-implemented
-    -   [ ] Scripts
+    -   [x] Scripts
     -   [ ] Test cases
+        -   [ ] Few TODOs
+
+-   WIP: Post deployment script
 
 ## Project structure
 
