@@ -11,12 +11,12 @@ export async function run(provider: NetworkProvider) {
     const jettonMinter = provider.open(
         JettonMinter.createFromConfig(
             {
-                supply: toNano('1000000'),
-                owner: senderAddress,
-                name: 'My Jetton',
-                symbol: 'JETT',
-                image: 'https://bitcoin.org/img/icons/logotop.svg',
-                description: 'My first jetton',
+                supply: toNano('100000000'), // Enter the total supply of the Jetton
+                owner: senderAddress, // Enter the address of the owner of the Jetton or leave it as senderAddress
+                name: 'NewJetton', // Enter the name of the Jetton
+                symbol: 'NJET', // Enter the symbol of the Jetton
+                image: 'https://raw.githubusercontent.com/VopxTech/vopx/f43a7df686540cb88c93d009a588af39d97519bc/static/icons/Telegram.svg', // Enter the image of the Jetton
+                description: 'For testing and testing and testing...', // Enter the description of the Jetton
             },
             await compile('JettonMinter'),
         ),
@@ -25,4 +25,6 @@ export async function run(provider: NetworkProvider) {
     await jettonMinter.sendDeploy(provider.sender(), toNano('0.25'));
 
     await provider.waitForDeploy(jettonMinter.address);
+
+    console.log(`Deployed JettonMinter at ${jettonMinter.address}`);
 }
