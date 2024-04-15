@@ -46,10 +46,6 @@ This project is based on [minter-contract](https://github.com/ton-blockchain/min
 
 `npx blueprint test` or `yarn blueprint test`
 
-### Deploy or run another script
-
-`npx blueprint run` or `yarn blueprint run`
-
 ### Deploy The Jetton
 
 1. Modify `JettonMinter\scripts\deployJettonMinter.ts` with the desired parameters, like name, symbol, supply, etc.
