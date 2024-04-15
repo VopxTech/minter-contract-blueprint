@@ -22,7 +22,12 @@ This project is based on [minter-contract](https://github.com/ton-blockchain/min
     -   [ ] Test cases
         -   [ ] Few TODOs
 
--   WIP: Post deployment script
+-   Post deployment scripts
+    -   [x] Mint
+    -   [x] Info
+    -   [x] Transfer Admin
+    -   [ ] Burn
+    -   [ ] Transfer Coins
 
 ## Project structure
 
@@ -45,6 +50,22 @@ This project is based on [minter-contract](https://github.com/ton-blockchain/min
 
 `npx blueprint run` or `yarn blueprint run`
 
-### Add a new contract
+### Deploy The Jetton
 
-`npx blueprint create ContractName` or `yarn blueprint create ContractName`
+1. Modify `JettonMinter\scripts\deployJettonMinter.ts` with the desired parameters, like name, symbol, supply, etc.
+2. Run `npx blueprint run` and choose `deployJettonMinter.ts` from the list.
+
+### Get Info About A Deployed Jetton
+
+1. Modify `JettonMinter\scripts\deployInfo.ts` with the address of deployed Jetton.
+2. Run `npx blueprint run` and choose `deployInfo.ts` from the list.
+
+### Mint More Coins
+
+1. Modify `JettonMinter\scripts\deployMint.ts` with the address of deployed Jetton and the amount to mint.
+2. Run `npx blueprint run` and choose `deployMint.ts` from the list.
+
+### Transfer Admin Rights
+
+1. Modify `JettonMinter\scripts\deployAdminChange.ts` with the address of deployed Jetton and the new admin address.
+2. Run `npx blueprint run` and choose `deployAdminChange.ts` from the list.
