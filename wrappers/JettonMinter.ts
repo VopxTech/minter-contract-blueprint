@@ -272,10 +272,12 @@ export class JettonMinter implements Contract {
         let res = await this.getJettonData(provider);
         return res.totalSupply;
     }
+
     async getAdminAddress(provider: ContractProvider) {
         let res = await this.getJettonData(provider);
         return res.adminAddress;
     }
+
     async getContent(provider: ContractProvider) {
         let res = await this.getJettonData(provider);
         return res.content;

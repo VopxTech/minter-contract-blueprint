@@ -217,10 +217,13 @@ describe('JettonWallet', () => {
         const deployerJettonWallet = await userWallet(deployer.address);
         let initialJettonBalance = await deployerJettonWallet.getJettonBalance();
         let initialTotalSupply = await jettonMinter.getTotalSupply();
+
         const notDeployerJettonWallet = await userWallet(notDeployer.address);
+
         let initialJettonBalance2 = await notDeployerJettonWallet.getJettonBalance();
         let sentAmount = toNano('0.5');
         let forwardAmount = toNano('0.05');
+
         const sendResult = await deployerJettonWallet.sendTransfer(
             deployer.getSender(),
             toNano('0.1'), //tons
@@ -231,19 +234,24 @@ describe('JettonWallet', () => {
             forwardAmount,
             null,
         );
+
         expect(sendResult.transactions).toHaveTransaction({
             //excesses
             from: notDeployerJettonWallet.address,
             to: deployer.address,
         });
+
         expect(sendResult.transactions).toHaveTransaction({
             //notification
             from: notDeployerJettonWallet.address,
             to: notDeployer.address,
             value: forwardAmount,
         });
+
         expect(await deployerJettonWallet.getJettonBalance()).toEqual(initialJettonBalance - sentAmount);
+
         expect(await notDeployerJettonWallet.getJettonBalance()).toEqual(initialJettonBalance2 + sentAmount);
+
         expect(await jettonMinter.getTotalSupply()).toEqual(initialTotalSupply);
     });
 
