@@ -14,7 +14,7 @@ export async function run(provider: NetworkProvider) {
         JettonMinter.createFromAddress(Address.parse('ENTER JETTON MINTER ADDRESS HERE')),
     );
 
-    let mintAddress = Address.parse('ENTER JETTON MINTER ADDRESS HERE');
+    let mintAddress = senderAddress; // Modify this to another address if you want to mint to someone else
     let mintAmount = 1000000; // <-- ENTER THE AMOUNT OF JETTONS TO MINT
 
     const supplyBefore = await jettonMinter.getTotalSupply();

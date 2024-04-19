@@ -11,7 +11,7 @@ export async function run(provider: NetworkProvider) {
     const jettonMinter = provider.open(
         JettonMinter.createFromConfig(
             {
-                supply: toNano('100000000'), // Enter the total supply of the Jetton
+                supply: toNano(0), // Enter the initial supply of the Jetton, **recommended to leave it as 0**
                 owner: senderAddress, // Enter the address of the owner of the Jetton or leave it as senderAddress
                 name: 'NewJetton', // Enter the name of the Jetton
                 symbol: 'NJET', // Enter the symbol of the Jetton
